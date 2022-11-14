@@ -3,6 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiDesktopFeaturesSample.MainPage">
 
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File">
+            <MenuFlyoutItem Text="Save" />
+            <MenuFlyoutItem Text="Exit" />
+            <MenuFlyoutSubItem Text="Did you subscribe?">
+                <MenuFlyoutItem Text="Yes" />
+                <MenuFlyoutItem Text="No BOOOO" />
+            </MenuFlyoutSubItem>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+    
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
@@ -13,13 +24,29 @@
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                ToolTipProperties.Text="This is a nice image">
+
+                <FlyoutBase.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="This is a menuitem" Clicked="MenuFlyoutItem_Clicked"/>
+                        <MenuFlyoutSeparator />
+                        <MenuFlyoutItem Text="This is a menuitem 2" Clicked="MenuFlyoutItem_Clicked"/>
+                        <MenuFlyoutSubItem Text="Did you subscribe?">
+                            <MenuFlyoutItem Text="Yes" />
+                            <MenuFlyoutItem Text="No BOOOO" />
+                        </MenuFlyoutSubItem>
+                    </MenuFlyout>
+                </FlyoutBase.ContextFlyout>
+            </Image>
 
             <Label
                 Text="Hello, World!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                ToolTipProperties.Text="This is not a image"
+                />
 
             <Label
                 Text="Welcome to .NET Multi-platform App UI"

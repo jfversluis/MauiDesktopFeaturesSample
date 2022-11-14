@@ -20,5 +20,10 @@ public partial class MainPage : ContentPage
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
+
+    private void MenuFlyoutItem_Clicked(object sender, EventArgs e)
+    {
+		DisplayAlert("Hello", "Clicked", "OK");
+    }
 }
 
